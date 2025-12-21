@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Provider Almanac 2025 | ZEN AI Co.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #020617;
+        --card-bg: rgba(15, 23, 42, 0.4);
+        --accent-primary: #818cf8;
+        --accent-secondary: #f472b6;
+      }
+      body {
+        font-family: 'Outfit', sans-serif;
+        background-color: var(--bg-color);
+        color: #e2e8f0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .font-heading { font-family: 'Space+Grotesk', sans-serif; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      .font-serif { font-family: 'Playfair Display', serif; }
+
+      /* Futuristic Dex Background */
+      .dex-bg {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+        z-index: -3;
+      }
+      .dex-grid {
+        position: fixed;
+        inset: 0;
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -2;
+        mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
+      }
+
+      #particles-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      /* Liquid Glass Dex Effect */
+      .glass-dex {
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(25px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 
+          0 4px 20px rgba(0, 0, 0, 0.5),
+          inset 0 1px 1px 0 rgba(255, 255, 255, 0.03);
+      }
+
+      .elite-shimmer {
+        background: linear-gradient(
+          to right,
+          #94a3b8 20%,
+          #f8fafc 40%,
+          #f8fafc 60%,
+          #94a3b8 80%
+        );
+        background-size: 200% auto;
+        color: #000;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 8s linear infinite;
+      }
+      @keyframes shine {
+        to { background-position: 200% center; }
+      }
+
+      .pulse-ring {
+        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      @keyframes pulse-ring {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.1); }
+      }
+
+      .data-stream {
+        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+        background-size: 200% 100%;
+        animation: stream 4s linear infinite;
+      }
+      @keyframes stream {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      .tilt-card {
+        transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+        transform-style: preserve-3d;
+      }
+      .tilt-card:hover {
+        transform: perspective(1000px) rotateX(1.5deg) rotateY(1deg) translateY(-8px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+      }
+
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: var(--bg-color); }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "lucide-react": "https://esm.sh/lucide-react@^0.474.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div class="dex-bg"></div>
+    <div class="dex-grid"></div>
+    <canvas id="particles-canvas"></canvas>
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+    <script>
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const particleCount = 120;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() * 0.5) + 0.2; // Flow downwards like snow
+          this.size = Math.random() * 1.5;
+          this.opacity = Math.random() * 0.5 + 0.1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.y > canvas.height) {
+            this.y = -10;
+            this.x = Math.random() * canvas.width;
+          }
+          if (this.x < 0 || this.x > canvas.width) {
+            this.vx *= -1;
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', resize);
+      init();
+      animate();
+    </script>
+  </body>
+</html>

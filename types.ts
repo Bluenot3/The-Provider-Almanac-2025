@@ -8,6 +8,13 @@ export interface GrowthMetric {
   percentage?: string;
 }
 
+export interface PricingTier {
+  model: string;
+  input: string;
+  cached: string;
+  output: string;
+}
+
 export interface ProviderDetail {
   title: string;
   slug: string;
@@ -17,6 +24,7 @@ export interface ProviderDetail {
   investment: string;
   revenue?: string;
   metrics?: GrowthMetric[];
+  pricing?: PricingTier[];
   watch2026: string[];
   platformUrl?: string;
   zenVerdict: string;

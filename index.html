@@ -11,10 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --bg-color: #020617;
-        --card-bg: rgba(15, 23, 42, 0.4);
-        --accent-primary: #818cf8;
-        --accent-secondary: #f472b6;
+        --bg-color: #010409;
+        --accent-glow: rgba(99, 102, 241, 0.15);
       }
       body {
         font-family: 'Outfit', sans-serif;
@@ -27,22 +25,11 @@
       .font-mono { font-family: 'JetBrains Mono', monospace; }
       .font-serif { font-family: 'Playfair Display', serif; }
 
-      /* Futuristic Dex Background */
       .dex-bg {
         position: fixed;
         inset: 0;
-        background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+        background: radial-gradient(circle at 50% 0%, #0f172a 0%, #010409 100%);
         z-index: -3;
-      }
-      .dex-grid {
-        position: fixed;
-        inset: 0;
-        background-image: 
-          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        background-size: 50px 50px;
-        z-index: -2;
-        mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
       }
 
       #particles-canvas {
@@ -50,87 +37,74 @@
         inset: 0;
         z-index: -1;
         pointer-events: none;
-        opacity: 0.6;
+        opacity: 0.4;
       }
 
-      /* Liquid Glass Dex Effect */
-      .glass-dex {
-        background: rgba(15, 23, 42, 0.4);
-        backdrop-filter: blur(25px) saturate(160%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 
-          0 4px 20px rgba(0, 0, 0, 0.5),
-          inset 0 1px 1px 0 rgba(255, 255, 255, 0.03);
+      /* Ultra-Sleek Glass Dex */
+      .glass-dex-ultra {
+        background: rgba(15, 23, 42, 0.25);
+        backdrop-filter: blur(40px) saturate(200%);
+        -webkit-backdrop-filter: blur(40px) saturate(200%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02), 0 20px 50px rgba(0, 0, 0, 0.5);
       }
 
       .elite-shimmer {
         background: linear-gradient(
           to right,
-          #94a3b8 20%,
-          #f8fafc 40%,
-          #f8fafc 60%,
-          #94a3b8 80%
+          #94a3b8 10%,
+          #f8fafc 30%,
+          #818cf8 50%,
+          #f8fafc 70%,
+          #94a3b8 90%
         );
         background-size: 200% auto;
-        color: #000;
-        background-clip: text;
-        text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: shine 8s linear infinite;
+        animation: shine 12s linear infinite;
+        text-shadow: 0 0 30px rgba(129, 140, 248, 0.2);
       }
       @keyframes shine {
         to { background-position: 200% center; }
       }
 
-      .pulse-ring {
-        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-      @keyframes pulse-ring {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(1.1); }
-      }
-
-      .data-stream {
-        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+      .data-line-glow {
+        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
         background-size: 200% 100%;
-        animation: stream 4s linear infinite;
+        animation: scan 4s linear infinite;
       }
-      @keyframes stream {
+      @keyframes scan {
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
       }
 
-      .tilt-card {
-        transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+      .tilt-dex {
+        transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
         transform-style: preserve-3d;
       }
-      .tilt-card:hover {
-        transform: perspective(1000px) rotateX(1.5deg) rotateY(1deg) translateY(-8px);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+      .tilt-dex:hover {
+        transform: perspective(1500px) rotateX(1deg) rotateY(0.5deg) translateY(-5px);
       }
 
-      ::-webkit-scrollbar { width: 4px; }
-      ::-webkit-scrollbar-track { background: var(--bg-color); }
-      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-      ::-webkit-scrollbar-thumb:hover { background: #334155; }
+      ::-webkit-scrollbar { width: 3px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
     </style>
     <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom": "https://esm.sh/react-dom@^19.2.3",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "lucide-react": "https://esm.sh/lucide-react@^0.474.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.474.0",
+    "react/": "https://esm.sh/react@19.0.0/",
+    "react-dom/": "https://esm.sh/react-dom@19.0.0/"
   }
 }
 </script>
   </head>
   <body>
     <div class="dex-bg"></div>
-    <div class="dex-grid"></div>
     <canvas id="particles-canvas"></canvas>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
@@ -138,7 +112,7 @@
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
-      const particleCount = 120;
+      const particleCount = 200;
 
       function resize() {
         canvas.width = window.innerWidth;
@@ -146,27 +120,21 @@
       }
 
       class Particle {
-        constructor() {
-          this.reset();
-        }
+        constructor() { this.reset(); }
         reset() {
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
-          this.vx = (Math.random() - 0.5) * 0.4;
-          this.vy = (Math.random() * 0.5) + 0.2; // Flow downwards like snow
-          this.size = Math.random() * 1.5;
-          this.opacity = Math.random() * 0.5 + 0.1;
+          this.vx = (Math.random() - 0.5) * 0.2;
+          this.vy = (Math.random() * 0.3) + 0.1; 
+          this.size = Math.random() * 0.8;
+          this.opacity = Math.random() * 0.4 + 0.1;
         }
         update() {
           this.x += this.vx;
           this.y += this.vy;
-          if (this.y > canvas.height) {
-            this.y = -10;
-            this.x = Math.random() * canvas.width;
-          }
-          if (this.x < 0 || this.x > canvas.width) {
-            this.vx *= -1;
-          }
+          if (this.y > canvas.height) this.y = -5;
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
         }
         draw() {
           ctx.beginPath();
@@ -179,21 +147,16 @@
       function init() {
         resize();
         particles = [];
-        for (let i = 0; i < particleCount; i++) {
-          particles.push(new Particle());
-        }
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
       }
 
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.update();
-          p.draw();
-        });
+        particles.forEach(p => { p.update(); p.draw(); });
         requestAnimationFrame(animate);
       }
 
-      window.addEventListener('resize', resize);
+      window.addEventListener('resize', init);
       init();
       animate();
     </script>

@@ -28,7 +28,6 @@ const App: React.FC = () => {
   ];
 
   const filteredProviders = useMemo(() => {
-    const allProviders = [...ALMANAC_DATA.providers, ...ALMANAC_DATA.openWeights, ...ALMANAC_DATA.cloud];
     const categoryProviders = activeCategory === 'Providers' ? ALMANAC_DATA.providers : 
                              activeCategory === 'Open' ? ALMANAC_DATA.openWeights :
                              activeCategory === 'Cloud' ? ALMANAC_DATA.cloud : [];
@@ -177,10 +176,10 @@ const App: React.FC = () => {
                  </div>
                  <div className="space-y-6 text-slate-400 text-lg leading-relaxed font-light">
                     <p>
-                       By mid-2025, the primary unit of AI advancement was no longer the model. It was the <strong>megastructure</strong>. Hyperscale campuses—measured in gigawatts—entered operation as industrial megastructures.
+                       By mid-2025, the primary unit of AI advancement shifted from the model to the <strong>megastructure</strong>. Datacenters measured in <strong>Gigawatts</strong> entered operation, making power, cooling, and water the new strategic constraints of cognition.
                     </p>
                     <p>
-                       Every inference acquired a thermodynamic cost. Nations with access to abundant, low-cost power gained disproportionate influence over the future of cognition.
+                       Inference cost emerged as a <strong>macroeconomic variable</strong>. Nations treated models as strategic assets, and agents began replacing entire roles rather than just individual tasks. The intelligence economy reached exascale.
                     </p>
                     <button 
                        onClick={() => {setShowOverview(false); window.scrollTo({top: 800, behavior: 'smooth'});}}

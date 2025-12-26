@@ -7,200 +7,261 @@ export const ALMANAC_DATA: AlmanacData = {
       title: "OpenAI",
       slug: "openai",
       segment: "Lab",
+      releaseTimeline: "GPT-5.2 (Dec 11, 2025)",
       advancements: [
-        "Transitioned to agent-native platform with GPT-5, 5.1, and 5.2 family releases.",
-        "Introduced reasoning tiering (Instant/Thinking/Pro) to match workload depths.",
-        "GPT-5.2 achieved a step-change in agentic performance and tool consistency.",
-        "Launched Responses API in March 2025 as the new core developer primitive."
+        "Launched GPT-5.2: Flagship upgrade with 'agentic tool-calling' and deep multimodal reasoning.",
+        "GPT-5.2-Codex (Dec 2025): Specialized release for software refactoring and long-running tasks.",
+        "Responses API standardized the 'Agent OS' layer for web and file-use.",
+        "Sora 2 & GPT-Image-1.5: Transitioned creative AI from novelty to production studio pipelines."
       ],
       missed: [
-        "Multi-step failures declined by 65%, enabling reliable enterprise agent chains.",
-        "Pricing shift: focus on cached inputs ($0.005/1M tokens) changed unit economics."
+        "Formalized coding/agent experiences as first-class products, moving away from simple chatbots.",
+        "Strategic shift: Focusing on 'AI that finishes the job' rather than just answering queries."
       ],
-      revenue: "$13B Reported (2025)",
+      revenue: "$13B Reported",
       metrics: [
-        { label: "Active Agents", value: "2M+", trend: 'up' },
-        { label: "Token Volume", value: "Trillions/Day", trend: 'up' }
+        { label: "ARR Velocity", value: "3x", trend: 'up', percentage: "200%" },
+        { label: "Agent Nodes", value: "2M+", trend: 'up' }
       ],
       pricing: [
-        { model: "GPT-5.2", input: "$1.75", cached: "$0.175", output: "$14.00" },
+        { model: "GPT-5.2 Pro", input: "$1.75", cached: "$0.175", output: "$14.00" },
         { model: "GPT-5.1", input: "$1.25", cached: "$0.125", output: "$10.00" },
         { model: "GPT-5-mini", input: "$0.25", cached: "$0.025", output: "$2.00" },
         { model: "GPT-5-nano", input: "$0.05", cached: "$0.005", output: "$0.40" }
       ],
-      investment: "Massive hiring in systems engineering (2,659 total staff) and national policy leadership.",
+      investment: "Hiring surged in systems engineering (~2,659 staff); CCO step-down signaled leadership churn.",
       watch2026: [
-        "Full 'Agent Operating System' with persistent shared memory.",
-        "Sunset of Assistants API in favor of Responses API by August 2026."
+        "Major Q1 2026 model leap telegraphed (GPT-6 speculation).",
+        "Assistants API sunset (Aug 2026) forces migration to Responses API."
       ],
       platformUrl: "https://openai.com",
-      zenVerdict: "OpenAI isn't chasing benchmarks anymore; they are building the industrial nervous system of the web.",
-      signalStrength: 98
-    },
-    {
-      title: "Google (DeepMind)",
-      slug: "google",
-      segment: "Big Tech",
-      advancements: [
-        "Gemini 3 Pro emerged as the 'thinking' workhorse for complex agent loops.",
-        "Launched Jules: an autonomous coding agent for repo-scale maintenance.",
-        "Veo 3.1 established video as a production medium with native rich audio."
-      ],
-      missed: [
-        "Throughput dominance: Gemini 3 Flash made high-reasoning free for billions.",
-        "Vibe coding in AI Studio collapsed the gap between prompt and production apps."
-      ],
-      revenue: "$102B Q3 Search Rev",
-      metrics: [
-        { label: "Daily Queries", value: "Billions", trend: 'up' },
-        { label: "TPU Capacity", value: "14+ ExaFLOPS", trend: 'up' }
-      ],
-      investment: "Consolidated Google Labs directly into core product cycles for faster iteration.",
-      watch2026: [
-        "Gemini fully replaces Legacy Assistant across Android ecosystem.",
-        "Search monetization redesign around AI answers enters final phase."
-      ],
-      platformUrl: "https://ai.google",
-      zenVerdict: "Google's rebound is complete; they own the edge through Android and the scale through Search.",
-      signalStrength: 95
+      zenVerdict: "OpenAI is now an industrial platform; the model is the engine, but the 'Response' is the product.",
+      signalStrength: 98,
+      traits: ["Agentic Execution", "Hybrid Reasoning", "Codex Integrated"]
     },
     {
       title: "Anthropic",
       slug: "anthropic",
       segment: "Lab",
+      releaseTimeline: "Claude 4.5 Family (Late 2025)",
       advancements: [
-        "Claude Opus 4.5 defined 'Cognitive Stamina' with stable million-token sessions.",
-        "Maturation of 'Claude Projects' into durable multi-agent workspaces."
+        "Claude Opus 4.5 (Nov 24): Flagship endurance model for high-stakes analysis.",
+        "Claude Sonnet 4.5 (Sep 29): Defacto coding workhorse and agent builder.",
+        "Claude Code (Feb 2025): Agentic terminal CLI that operates tools autonomously.",
+        "Introduced 'Computer Use' capability, allowing models to operate UIs like humans."
       ],
       missed: [
-        "Predictability over Peak: Opus became the safe-haven for legal and regulated industries.",
-        "Fewer hallucinations in long-form synthesis compared to GPT-5.1."
+        "Earned the 'Safe Haven' reputation; Claude became the default when the cost of failure was high.",
+        "Hybrid Reasoning: Balancing fast intuition with slow, methodical deduction."
       ],
       revenue: ">$5B Run-rate",
       metrics: [
-        { label: "Context Window", value: "2.5M+", trend: 'up' },
-        { label: "Safety Score", value: "99.9%", trend: 'up' }
+        { label: "Trust Score", value: "99.9%", trend: 'up' },
+        { label: "Token Persistence", value: "Elite", trend: 'up' }
       ],
-      investment: "Safety engineering and alignment research remains 40% of headcount.",
+      pricing: [
+        { model: "Opus 4.5", input: "$15.00", cached: "$3.75", output: "$75.00" },
+        { model: "Sonnet 4.5", input: "$3.00", cached: "$0.75", output: "$15.00" },
+        { model: "Haiku 4.5", input: "$0.25", cached: "$0.06", output: "$1.25" }
+      ],
+      investment: "Safety alignment remains 40% of research budget; deep AWS/Google cloud distribution.",
       watch2026: [
-        "Stronger agent verification frameworks for high-stakes finance/law.",
-        "Native governance controls for massive-scale enterprise deployments."
+        "Deeper 'Computer Use' maturity; models that manage entire desktops.",
+        "Advanced agent verification and auditability logs as defaults."
       ],
       platformUrl: "https://anthropic.com",
-      zenVerdict: "When the cost of failure is high, the industry defaults to Claude.",
-      signalStrength: 92
+      zenVerdict: "Predictability is the ultimate feature; Anthropic owns the reliability narrative.",
+      signalStrength: 94,
+      traits: ["Computer Use", "Long Context", "High Reliability"]
     },
     {
-      title: "NVIDIA",
-      slug: "nvidia",
-      segment: "Infrastructure",
+      title: "Google (DeepMind)",
+      slug: "google",
+      segment: "Big Tech",
+      releaseTimeline: "Gemini 3 Flash (Dec 2025)",
       advancements: [
-        "Blackwell/Grace-Blackwell (GB200) redefined compute as rack-scale coherence.",
-        "Deployment of liquid-cooling standards for 100kW+ density racks."
+        "Gemini 3 Flash: Speed-focused frontier intelligence for real-time interaction.",
+        "NotebookLM: Swapped in Gemini 3 backend, normalizing 'AI workspaces'.",
+        "Veo 3.1 & Flow: Established a cinematic environment for AI-assisted video editing.",
+        "Jules: Autonomous coding agent launched for repo-level maintenance."
       ],
       missed: [
-        "Networking Moat: NVLink Switch Systems became as important as the GPU core.",
-        "Software Gravity: CUDA libraries (cuDNN/TensorRT) widened performance gaps."
+        "Delayed Assistant replacement into 2026: Signal that smart-home integration remains the hard edge.",
+        "Distribution moat: Gemini became a layer in Search, Android, and Workspace all at once."
       ],
-      revenue: "$130B+ Projected",
+      revenue: "$100B+ (Cloud/Search)",
       metrics: [
-        { label: "GPU Backlog", value: "6 Months+", trend: 'up' },
-        { label: "Market Cap", value: "Elite Tier", trend: 'up' }
+        { label: "Daily Tokens", value: "Trillions", trend: 'up' },
+        { label: "Compute Pool", value: "14+ ExaFLOPS", trend: 'up' }
       ],
-      investment: "Aggressive expansion into data-center architecture and national sovereign compute.",
+      investment: "Massive hardware investment (TPUs); consolidating Labs directly into product cycles.",
       watch2026: [
-        "Turnkey 'AI Factories' shipped as a single product SKU.",
-        "Custom hyperscaler silicon (Trainium/TPU) begins to challenge inference share."
+        "Full Android transition to Gemini; legacy Assistant phase-out.",
+        "Generative Search monetization models reach global scale."
       ],
-      platformUrl: "https://nvidia.com",
-      zenVerdict: "The landlord of the AI era. They don't just sell chips; they sell the ability to think.",
-      signalStrength: 100
+      platformUrl: "https://ai.google",
+      zenVerdict: "Google doesn't just launch; it saturates. Gemini is the civilizational substrate of the search era.",
+      signalStrength: 96,
+      traits: ["Speed-of-Search", "Multimodal Native", "TPU Powered"]
+    }
+  ],
+  openWeights: [
+    {
+      title: "Meta (Llama)",
+      slug: "meta",
+      segment: "Open Source",
+      releaseTimeline: "Llama 4 (Apr 5, 2025)",
+      advancements: [
+        "Llama 4 Scout & Maverick: Natively multimodal open-weight models.",
+        "Extreme context length targets reached, rivaling closed labs."
+      ],
+      missed: [
+        "Cemented that 'Open' can be cutting-edge, not just a trailing alternative.",
+        "Deeply integrated into every major cloud catalog (Azure, Bedrock, Vertex)."
+      ],
+      investment: "Zuckerberg's 'Compute Moat' strategy: billions in H100/Blackwell infrastructure.",
+      watch2026: [
+        "Llama 4.5 reasoning variants and specialized agent weights.",
+        "Deeper on-device optimization for Meta Ray-Ban and VR hardware."
+      ],
+      zenVerdict: "Meta is the open-weight lighthouse; they provide the infrastructure the rest of the world builds on.",
+      signalStrength: 97,
+      traits: ["Multimodal Native", "Compute Moat", "Ecosystem Standard"]
+    },
+    {
+      title: "DeepSeek",
+      slug: "deepseek",
+      segment: "Open Source",
+      releaseTimeline: "R1 (Jan 20, 2025)",
+      advancements: [
+        "DeepSeek-R1: The reasoning shockwave that challenged Western lab dominance.",
+        "May 28 Upgrade: Reduced hallucinations and added native JSON/Function calling."
+      ],
+      missed: [
+        "Geopolitical signal: Proved that state-of-the-art reasoning doesn't require Western hyperscalers.",
+        "Economic disruption: Forced pricing drops across the API market."
+      ],
+      investment: "Efficiency-first research; massive adoption in developer-first communities.",
+      watch2026: [
+        "DeepSeek-V3/R2 with multimodal capabilities and faster inference.",
+        "Specialized coding models competing directly with Claude Code."
+      ],
+      zenVerdict: "The most disruptive entity of 2025. They proved that clever architecture beats brute-force spend.",
+      signalStrength: 95,
+      traits: ["Reasoning Shockwave", "Efficiency King", "Open Weights"]
     }
   ],
   vision: {
     images: [
       {
         name: "Midjourney V7",
-        description: "The gold standard for creative direction and aesthetic taste.",
-        excelledAt: ["Texture richness", "Cinematic lighting", "Coherent details"],
+        description: "The aesthetic gold standard for creative direction and world-building.",
+        excelledAt: ["Cinematic Texture", "Object Integrity", "Style Persistence"],
         whyItMattered: "Taste at scale—the model designers reach for when it needs to look 'final'.",
+        releaseDate: "Apr 3, 2025",
         definingTrait: "Aesthetic Excellence",
         platformUrl: "https://midjourney.com",
         techStack: ["Omni Reference", "Draft Mode"]
       },
       {
-        name: "GPT Image 1.5",
-        description: "Precision visual engine for technical instruction following.",
-        excelledAt: ["Complex edits", "Text rendering", "Instruction following"],
-        whyItMattered: "Turned generation into a reliable 'visual work engine' for business.",
-        definingTrait: "Instruction Fidelity",
-        platformUrl: "https://openai.com"
+        name: "FLUX.2",
+        description: "High-end commercial image generation with multi-reference consistency.",
+        excelledAt: ["Text Rendering", "Brand Layout", "Consistency"],
+        whyItMattered: "Brought studio-grade repeatability to the open ecosystem.",
+        releaseDate: "Nov 11, 2025",
+        platformUrl: "https://blackforestlabs.ai",
+        techStack: ["FP8 Optimizations", "Azure AI Foundry"]
       }
     ],
     videos: [
       {
-        name: "Sora 2",
-        description: "The cinematic leap from clips to cohesive sound-era scenes.",
-        excelledAt: ["Physical realism", "Synchronized audio", "Dialogue sync"],
-        whyItMattered: "Made AI video a consumer habit with sound-era realism.",
-        platformUrl: "https://openai.com/sora"
+        name: "Runway Gen-4.5",
+        description: "Consistency across shots, defining the era of AI filmmaking.",
+        excelledAt: ["Scene Continuity", "Character Locking", "Realism"],
+        whyItMattered: "Made 'AI Video' feel like a product category you can actually ship work with.",
+        releaseDate: "Dec 1, 2025",
+        platformUrl: "https://runwayml.com"
       },
       {
-        name: "Gen-4.5 (Runway)",
-        description: "Professional tool built for shot-to-shot continuity and filmmakers.",
-        excelledAt: ["Camera controls", "Shot continuity", "Consistency"],
-        whyItMattered: "Built for 'make me a scene,' not just 'make me a clip'.",
-        platformUrl: "https://runwayml.com"
+        name: "Luma Ray3 Modify",
+        description: "Pivoting from generation to 'editing reality' with AI.",
+        excelledAt: ["Video-to-Video", "Footage Preservation", "VFX"],
+        whyItMattered: "Preserves actor performance while altering the world around them.",
+        releaseDate: "Dec 2025",
+        platformUrl: "https://lumalabs.ai"
       }
     ]
   },
   coding: [
     {
       name: "Cursor",
-      description: "The AI-native IDE that understands entire repositories as systems.",
-      excelledAt: ["Repo-wide understanding", "Architectural refactors"],
-      whyItMattered: "Low hallucination and exceptional context continuation.",
+      description: "The system-wide IDE that defined 'Vibe Coding'.",
+      excelledAt: ["Repo Awareness", "Architectural Refactors"],
+      whyItMattered: "Created a daily dependence for elite engineering teams.",
       cost: "$20/mo",
-      platformUrl: "https://cursor.com"
+      platformUrl: "https://cursor.sh"
     },
     {
-      name: "V0.dev",
-      description: "Design-to-production UI generator turning intent into shippable code.",
-      excelledAt: ["React/Tailwind", "Design systems", "Speed"],
-      whyItMattered: "Collapsed design and engineering into a single conversational loop.",
-      platformUrl: "https://v0.dev"
+      name: "GitHub Copilot Workspace",
+      description: "Task-level software agents operating on issues and PRs.",
+      excelledAt: ["Task Orchestration", "PR Management"],
+      whyItMattered: "The default enterprise surface for AI-augmented software teams.",
+      platformUrl: "https://github.com"
     }
   ],
   agents: [
     {
-      name: "n8n",
-      description: "Developer-first agent orchestration and self-hostable engine.",
-      excelledAt: ["Tool chaining", "Private pipelines", "Human-in-the-loop"],
-      whyItMattered: "The home for serious, private enterprise agent swarms.",
+      name: "n8n (Agent Mode)",
+      description: "Self-hostable orchestration for private enterprise agent swarms.",
+      excelledAt: ["Private Pipelines", "Tool Chaining"],
+      whyItMattered: "The connective tissue for agents operating on real-world systems.",
       platformUrl: "https://n8n.io"
-    },
-    {
-      name: "CrewAI",
-      description: "Collaborative multi-agent framework with role-based logic.",
-      excelledAt: ["Role delegation", "Autonomous research"],
-      whyItMattered: "Pushed beyond prompt-response into system behavior.",
-      platformUrl: "https://crewai.com"
     }
   ],
   apps: [
     {
-      name: "NotebookLM",
-      description: "Source-grounded AI workspace for reasoning inside documentation.",
-      excelledAt: ["Knowledge synthesis", "Zero hallucinations"],
-      whyItMattered: "Turned knowledge bases into daily cognitive prosthetics.",
-      platformUrl: "https://notebooklm.google"
+      name: "Perplexity",
+      description: "Knowledge work accelerant replacing traditional search for deep inquiry.",
+      excelledAt: ["Synthesis", "Source Transparency", "Fact-First"],
+      whyItMattered: "Users stopped browsing and started interrogating information.",
+      platformUrl: "https://perplexity.ai"
+    }
+  ],
+  audio: [
+    {
+      name: "Eleven v3",
+      description: "Production-grade voice with scene direction and emotional performance.",
+      excelledAt: ["Expressivity", "Multi-Speaker Dialogue"],
+      whyItMattered: "Voice went from 'reading text' to 'performing emotion'.",
+      platformUrl: "https://elevenlabs.io"
     },
     {
-      name: "Napkin AI",
-      description: "Turns messy thoughts into clean diagrams and conceptual visuals.",
-      excelledAt: ["Visual thinking", "Diagram generation"],
-      whyItMattered: "Solves the 'thinking to artifact' bottleneck instantly.",
-      platformUrl: "https://napkin.ai"
+      name: "Suno v5",
+      description: "Music generation with professional-grade production knobs.",
+      excelledAt: ["Song Structure", "Production Quality"],
+      whyItMattered: "Turned music creation into a cultural behavior for millions.",
+      platformUrl: "https://suno.com"
+    }
+  ],
+  cloud: [
+    {
+      title: "AWS Bedrock",
+      slug: "aws",
+      segment: "Infrastructure",
+      releaseTimeline: "Nova 2 (re:Invent 2025)",
+      advancements: [
+        "Bedrock became the 'Model Mall' of choice for the Fortune 500.",
+        "Launched Amazon Nova 2: Proprietary multimodal series optimized for cost."
+      ],
+      missed: [
+        "Governance is the product: identity, logging, and audit hooks won enterprise deals.",
+        "Distribution partner for Anthropic, Mistral, and Meta."
+      ],
+      zenVerdict: "AWS is the utility layer; they provide the grid that the intelligence economy runs on.",
+      signalStrength: 92,
+      traits: ["Enterprise Gravity", "Model Mall", "Governance First"],
+      investment: "",
+      watch2026: []
     }
   ]
 };

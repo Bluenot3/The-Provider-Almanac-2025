@@ -1,5 +1,5 @@
 
-export type Category = 'Providers' | 'Vision' | 'Coding' | 'Agents' | 'Apps' | 'Predictions';
+export type Category = 'Providers' | 'Vision' | 'Coding' | 'Agents' | 'Apps' | 'Open' | 'Cloud' | 'Audio';
 
 export interface GrowthMetric {
   label: string;
@@ -18,7 +18,8 @@ export interface PricingTier {
 export interface ProviderDetail {
   title: string;
   slug: string;
-  segment: 'Lab' | 'Big Tech' | 'Infrastructure' | 'Software' | 'Strategic';
+  segment: 'Lab' | 'Big Tech' | 'Infrastructure' | 'Software' | 'Strategic' | 'Open Source';
+  releaseTimeline: string;
   advancements: string[];
   missed: string[];
   investment: string;
@@ -29,6 +30,7 @@ export interface ProviderDetail {
   platformUrl?: string;
   zenVerdict: string;
   signalStrength: number; // 0 to 100
+  traits: string[];
 }
 
 export interface ToolDetail {
@@ -41,10 +43,12 @@ export interface ToolDetail {
   platformUrl: string;
   cost?: string;
   techStack?: string[];
+  releaseDate?: string;
 }
 
 export interface AlmanacData {
   providers: ProviderDetail[];
+  openWeights: ProviderDetail[];
   vision: {
     images: ToolDetail[];
     videos: ToolDetail[];
@@ -52,4 +56,6 @@ export interface AlmanacData {
   coding: ToolDetail[];
   agents: ToolDetail[];
   apps: ToolDetail[];
+  audio: ToolDetail[];
+  cloud: ProviderDetail[];
 }
